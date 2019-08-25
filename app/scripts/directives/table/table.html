@@ -1,0 +1,86 @@
+<div>
+    <div class="panel panel-primary">
+        <!-- panel -->
+        <div class="row panel-heading" style="position: relative;" ng-show="vmTable.link.showPanel">
+            <div class="col-lg-7 col-md-6 col-sm-6 col-xs-7">
+                <h3>{{vmTable.config.title | i18next}}</h3>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-6 col-xs-5 vcenter" ng-show="vmTable.config.showTool">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4 add">
+                    <i class="fa fa-plus" ng-click="vmTable.openAddForm()"></i><span><a href=""
+                            ng-click="vmTable.openAddForm()" class="hidden-xs" ng-i18next="table.add"></a></span>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4 delete">
+                    <i class="fa fa-trash" ng-click="vmTable.removeItems()"
+                        ng-class="{'disabled': !vmTable.config.checked || !vmTable.config.isCheckedAll, 'abled': vmTable.config.checked || vmTable.config.isCheckedAll}"></i><span><a
+                            href="" ng-click="vmTable.removeItems()" class="hidden-xs"
+                            ng-class="{'disabled': !vmTable.config.checked || !vmTable.config.isCheckedAll, 'abled': vmTable.config.checked || vmTable.config.isCheckedAll}"
+                            ng-i18next="table.delete"></a></span>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4 search">
+                    <i class="fa fa-search"></i><span><a href="" ng-click="vmTable.config.showTool = false"
+                            class="hidden-xs" ng-i18next="table.search"></a></span>
+                </div>
+            </div>
+            <div class="input-group col-lg-5 col-md-5 col-sm-5 col-xs-5 vcenter2" ng-hide="vmTable.config.showTool">
+                <input type="text" class="form-control" id="search" ng-model="search.name"
+                    ng-i18next="[placeholder]table.search_placeholder">
+                <span class="input-group-addon"><i class="fa fa-times"
+                        ng-click="vmTable.config.showTool = true"></i></span>
+            </div>
+        </div>
+        <!-- table -->
+        <div id="st-container" class="st-container">
+            <nav class="st-menu st-effect-2" id="menu-1">
+                <h2 class="icon icon-lab hit-the-floor">404</h2>
+                <div style="width: 80%; height: 80%; margin: 0 auto; text-align: center">
+                    <img src="https://photo-2-baomoi.zadn.vn/2019_06_21_119_31180897/833ea57fa73f4e61172e.jpg" alt="" style="width: auto; height: 100%">
+                </div>
+            </nav>
+            <div class="st-pusher" id="st-pusher">
+                <div class="st-content">
+                    <table class="table table-hover table-bordered table-striped">
+                        <thead>
+                            <tr class="warning">
+                                <th><input type="checkbox" name="all" ng-click="vmTable.selectAllCheckbox()"
+                                        ng-model="vmTable.config.isCheckedAll"></th>
+                                <th ng-repeat="col in vmTable.config.numberOfColumns">{{col | i18next}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in list | filter: search">
+                                <td><input type="checkbox" name="all" ng-model="item.checked"
+                                        ng-click="vmTable.toggleCheckboxSelection($event, $index)"></td>
+                                <td>{{item['name']}}</td>
+                                <td ng-if="vmTable.path === vmTable.config.songPath || vmTable.link.showTableForm">
+                                    {{item.artist}}</td>
+                                <td ng-if="vmTable.path === vmTable.config.playlistPath && !vmTable.link.showTableForm">
+                                    <b>({{item.songs.length}})</b>
+                                    <span ng-repeat="song in item.songs | limitTo : 3"><i
+                                            class="fa fa-ellipsis-v"></i><i>{{song.name}}</i>- {{song.artist}}
+                                    </span>
+                                    <span ng-show="item.songs.length > 3">...</span>
+                                    <a class="btn pull-right ske-btn" ng-click="vmTable.toggleModal(item)"><span ng-i18next="table.btnDetail"></span></a>
+                                </td>
+                                <td ng-show="!vmTable.link.showTableForm">
+                                    <div class="row">
+                                        <div ng-class="vmTable.path === vmTable.config.songPath ? 'col-md-2' : 'col-md-4'">
+                                            <i class="fa fa-edit material-icons edit" ng-click="vmTable.openEditForm(item)" data-toggle="tooltip" data-placement="top" ng-i18next="[title]table.tooltip_edit"></i>
+                                        </div>
+                                        <div ng-class="vmTable.path === vmTable.config.songPath ? 'col-md-2' : 'col-md-4'">
+                                            <i class="fa fa-trash material-icons delete" ng-click="vmTable.removeItem(item)" data-toggle="tooltip" data-placement="top" ng-i18next="[title]table.tooltip_delete"></i>
+                                        </div>
+                                        <div ng-if="vmTable.path === vmTable.config.songPath" ng-class="vmTable.path === vmTable.config.songPath ? 'col-md-2' : 'col-md-4'" class="hidden-xs">
+                                            <i class="fa fa-arrow-circle-right material-icons arrow" data-effect="st-effect-2" data-toggle="tooltip" data-placement="top" ng-i18next="[title]table.tooltip_info"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

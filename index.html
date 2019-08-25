@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <link rel='shortcut icon' type='image/x-icon' href='./assets/images/Robsonbillponte-Sinem-File-Music.ico'/>
+    <!-- <base href="/"> -->
+    <title>Music Manager</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./bower_components/sweetalert/dist/sweetalert.css">
+    <link rel="stylesheet" href="./bower_components/bootstrap-directional-buttons/dist/bootstrap-directional-buttons.min.css">
+    <link rel="stylesheet" href="./bower_components/bootstrap-multiselect/dist/css/bootstrap-multiselect.css">
+    <link rel="stylesheet" href="./dist/style.css">
+
+</head>
+
+<body>
+    <div class="loader-cat" ng-hide="$root.isHideLoading"></div>
+    <div class="loader-spinner" ng-hide="$root.isHideLoading2"></div>
+    <div class="container" ng-controller="myAppCtrl">
+        <div class="row">
+            <div class="col-md-10">
+                <h1 class="header"><i class="glyphicon glyphicon-headphones"></i>&emsp;<span ng-i18next="title"></span>
+                </h1>
+            </div>
+            <div class="col-md-2">
+                <div class="select pull-right">
+                    <select name="slct" id="slct" ng-model="mySelect" ng-change="changeLng(mySelect)">
+                        <option value="{{lng.lng}}" ng-repeat="lng in data.language">{{lng.name}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <br>
+        <my-nav></my-nav>
+        <div class="wrapper">
+            <ng-view></ng-view>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js"></script>
+    <script src="./bower_components/angular/angular.min.js"></script>
+    <script src="./bower_components/angular-route/angular-route.min.js"></script>
+    <script src="./bower_components/ngSweetAlert/SweetAlert.min.js"></script>
+    <script src="./bower_components/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="./bower_components/ngstorage/ngStorage.min.js"></script>
+
+    <script src="./bower_components/i18next/i18next.min.js"></script>
+    <script src="./bower_components/i18next-xhr-backend/i18nextXHRBackend.min.js"></script>
+    <script src="./bower_components/i18next-sprintf-postprocessor/i18nextSprintfPostProcessor.min.js"></script>
+    <script src="./bower_components/ng-i18next/dist/ng-i18next.min.js"></script>
+    <script src="./dist/scripts/directives/i18next/i18next.config.js"></script>
+
+    <script src="./dist/app.module.js"></script>
+    <script src="./dist/app.config.js"></script>
+
+    <script src="./dist/scripts/songApp/song.service.js"></script>
+    <script src="./dist/scripts/playlistApp/playlist.service.js"></script>
+    <script src="./dist/services/data.service.js"></script>
+    <script src="./dist/scripts/directives/pagination/pagination.service.js"></script>
+    <script src="./dist/scripts/directives/form/form.service.js"></script>
+    <script src="./dist/scripts/directives/modal/modal.service.js"></script>
+
+    <script src="./dist/app.controller.js"></script>
+    <script src="./dist/scripts/songApp/song.controller.js"></script>
+    <script src="./dist/scripts/playlistApp/playlist.controller.js"></script>
+
+    <script src="./dist/scripts/directives/table/table.directive.js"></script>
+    <script src="./dist/scripts/directives/double-table/double-table.directive.js"></script>
+    <script src="./dist/scripts/directives/form/form.directive.js"></script>
+    <script src="./dist/scripts/directives/nav/nav.directive.js"></script>
+    <script src="./dist/scripts/directives/modal/modal.directive.js"></script>
+    <script src="./dist/scripts/directives/pagination/pagination.directive.js"></script>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+</body>
+
+</html>

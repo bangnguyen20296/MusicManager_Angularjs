@@ -1,0 +1,30 @@
+<div class="content" ng-controller="playListCtrl as vmPlaylistApp">
+    <div class="link panel panel-default hidden-xs">
+        <p class="panel-heading"><a href="" ng-i18next="playlist.navigate.home"></a><span>></span><a href="" ng-i18next="playlist.navigate.path"></a></p>
+    </div>
+    <div id="playlists" class="tab-pane playlists" style="position: relative">
+        <div class="loader-cat" style="position: absolute" ng-show="vmPlaylistApp.isLoading"></div>
+        <!-- table -->
+        <my-table config="vmPlaylistApp.configTable" link="vmPlaylistApp.configLinkData" list="vmPlaylistApp.configPagi.itemList" ng-if="vmPlaylistApp.configLinkData.showTable"></my-table>
+
+        <!-- modal -->
+        <my-modal box-width="1000px" box-height="auto" config="vmPlaylistApp.configModal" link="vmPlaylistApp.configLinkData" list="vmPlaylistApp.configPagi.itemList"></my-modal>
+
+        <!-- form -->
+        <div class="form-songs" ng-if="vmPlaylistApp.configLinkData.isOpenForm">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3>{{vmPlaylistApp.configForm.title | i18next}}</h3>
+                </div>
+                <div class="panel-body">
+                    <double-table class="panel-body" config="vmPlaylistApp.configDoubleTable" link="vmPlaylistApp.configLinkData" left-data="vmPlaylistApp.selectedList" right-data="vmPlaylistApp.songList"></double-table>
+                    <hr>
+                    <my-form config="vmPlaylistApp.configForm" link="vmPlaylistApp.configLinkData" list="vmPlaylistApp.playList"></my-form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- pagination -->
+        <my-pagination config="vmPlaylistApp.configPagi" list="vmPlaylistApp.playList" class="cus-pagi-table" ng-if="vmPlaylistApp.configLinkData.showTable"></my-pagination>
+    </div>
+</div>

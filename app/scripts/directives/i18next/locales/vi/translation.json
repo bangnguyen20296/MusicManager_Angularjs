@@ -1,0 +1,89 @@
+{
+    "title": "Quản Lý Âm Nhạc",
+    "Name": "Tên",
+    "Artist": "Ca Sĩ",
+    "navbar": {
+        "songs": "D.Sách Nhạc",
+        "playlists": "D.Sách Album"
+    },
+    "table": {
+        "add": "Thêm",
+        "delete": "Xóa",
+        "search": "Tìm Kiếm",
+        "search_placeholder": "Tìm Kiếm",
+        "btnDetail": "Chi Tiết",
+        "tooltip_edit": "Sửa",
+        "tooltip_delete": "Xóa",
+        "tooltip_info": "Thông tin"
+    },
+    "double-table": {
+        "table-left": {
+            "numberOfColumns": ["Tên", "Ca sĩ"]
+        },
+        "table-right": {
+            "numberOfColumns": ["Tên", "Ca sĩ"]
+        }
+    },
+    "pagination": {
+        "first": "Trang đầu",
+        "previous": "Trước",
+        "next": "Kế",
+        "last": "Trang cuối"
+    },
+    "modal": {
+        "numberOfColumns": ["Tên", "Ca sĩ"],
+        "title": "Danh sách nhạc:"
+    },
+    "form": {
+        "create_titleBtn": "Tạo",
+        "edit_titleBtn": "Áp dụng",
+        "cancel": "Đóng",
+        "add": "Thêm",
+        "drop": "Bỏ",
+        "title_table_left": "Nhạc Đã Thêm",
+        "title_table_right": "Danh Sách Nhạc"
+    },
+    "song": {
+        "navigate": {
+            "home": "Trang Chủ",
+            "path": "D.Sách Nhạc"
+        },
+        "table" : {
+            "title" : "Quản Lý Nhạc",
+            "numberOfColumns": ["Tên", "Ca sĩ", "Chức Năng"]
+        },
+        "form": {
+            "labelInput1": "*Tên nhạc",
+            "labelInput2": "Ca Sĩ",
+            "warning1": "Tên nhạc không được để trống",
+            "warning2": "Tên ca sĩ không được để trống",
+            "create": {
+                "title": "Thêm Nhạc"
+            },
+            "edit": {
+                "title": "Chỉnh Sửa Nhạc"
+            }
+        }
+    },
+    "playlist": {
+        "navigate": {
+            "home": "Trang Chủ",
+            "path": "D.Sách Album"
+        },
+        "table": {
+            "title": "Quản Lý Danh Sách Nhạc",
+            "numberOfColumns": ["Tên", "Bài hát", "Chức Năng"]
+        },
+        "form": {
+            "numberOfColumns": ["Tên", "Ca Sĩ"],
+            "labelInput1": "*Tên danh sách",
+            "warning1": "Tên danh sách không được để trống",
+            "create": {
+                "title": "Thêm D.Sách Nhạc"
+            },
+            "edit": {
+                "title": "Chỉnh Sửa D.Sách Nhạc"
+            }
+        }
+    }
+}

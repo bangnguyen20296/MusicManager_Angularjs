@@ -1,0 +1,1 @@
+!function(){"use strict";angular.module("myApp").factory("ModalService",function(){var o={isOpenModal:!1};return{state:o,openDialog:function(){o.isOpenModal=!0},closeDialog:function(){o.isOpenModal=!1},toggleDialog:function(){o.isOpenModal=!o.isOpenModal},songListModal:[]}})}();

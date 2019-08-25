@@ -1,0 +1,19 @@
+<div>
+    <ul ng-show="vmPagi.pager.pages.length" class="pagination">
+        <li ng-class="{disabled:vmPagi.pager.currentPage === 1}">
+            <a ng-click="vmPagi.setPage(1)" style="cursor: pointer" ng-i18next="pagination.first"></a>
+        </li>
+        <li ng-class="{disabled:vmPagi.pager.currentPage === 1}">
+            <a ng-click="vmPagi.setPage(vmPagi.pager.currentPage - 1)" style="cursor: pointer" ng-i18next="pagination.previous"></a>
+        </li>
+        <li ng-repeat="page in vmPagi.pager.pages" ng-class="{active:vmPagi.pager.currentPage === page}">
+            <a ng-click="vmPagi.setPage(page)" style="cursor: pointer">{{page}}</a>
+        </li>
+        <li ng-class="{disabled:vmPagi.pager.currentPage === vmPagi.pager.totalPages}">
+            <a ng-click="vmPagi.setPage(vmPagi.pager.currentPage + 1)" style="cursor: pointer" ng-i18next="pagination.next"></a>
+        </li>
+        <li ng-class="{disabled:vmPagi.pager.currentPage === vmPagi.pager.totalPages}">
+            <a ng-click="vmPagi.setPage(vmPagi.pager.totalPages)" style="cursor: pointer" ng-i18next="pagination.last"></a>
+        </li>
+    </ul>
+</div> 

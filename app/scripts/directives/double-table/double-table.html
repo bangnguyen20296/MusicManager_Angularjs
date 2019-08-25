@@ -1,0 +1,26 @@
+<div class="row cus-table">
+    <div class="col-md-6">
+        <h3><span class="label label-danger" ng-i18next="form.title_table_left"></span></h3>
+        <my-table config="vmDoubleTable.config.tableLeft" link="link" list="vmDoubleTable.configPagiLeft.itemList" ng-if="vmDoubleTable.link.showTableForm">
+        </my-table>
+        <my-pagination config="vmDoubleTable.configPagiLeft" list="vmDoubleTable.leftData" link="link"></my-pagination>
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-2 pos">
+                <div class="btn-group-vertical vertical-center">
+                    <button type="button" class="btn btn-success btn-sm btn-arrow-left"
+                        ng-click="vmDoubleTable.addSongToNewList()" ng-i18next="form.add"></button>
+                    <button type="button" class="btn btn-dark btn-sm btn-arrow-right"
+                        ng-click="vmDoubleTable.dropSongFromAddedSongs()" ng-i18next="form.drop"></button>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <h3><span class="label label-warning" ng-i18next="form.title_table_right"></span></h3>
+                <my-table config="vmDoubleTable.config.tableRight" link="link" list="vmDoubleTable.configPagiRight.itemList" ng-if="vmDoubleTable.link.showTableForm">
+                </my-table>
+                <my-pagination config="vmDoubleTable.configPagiRight" list="vmDoubleTable.rightData" link="link"></my-pagination>
+            </div>
+        </div>
+    </div>
+</div>

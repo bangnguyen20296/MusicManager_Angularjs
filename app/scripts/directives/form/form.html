@@ -1,0 +1,25 @@
+<form ng-submit="vmForm.submitForm()" novalidate name="myForm" autocomplete="off">
+    <div class="form">
+        <div class="form-group">
+            <label for="usr">{{vmForm.config.labelInput1 | i18next}}</label>
+            <input type="text" class="form-control usr" name="song" ng-model="vmForm.link.inputName" ng-required="true">
+            <div ng-show="myForm.song.$touched && myForm.song.$invalid">
+                <small>{{vmForm.config.warning1 | i18next}}</small>
+            </div>
+        </div>
+        <div class="form-group" ng-if="vmForm.path === vmForm.config.songPath">
+            <label for="pwd">{{vmForm.config.labelInput2 | i18next}}</label>
+            <input type="text" class="form-control cus" name="artist" ng-model="vmForm.link.inputArtist" required>
+            <div ng-show="myForm.artist.$touched && myForm.artist.$invalid">
+                <small>{{vmForm.config.warning2 | i18next}}</small>
+            </div>
+        </div>
+        <hr>
+        <div style="width: 50%; text-align: right" class="pull-right">
+            <button class="btn btn-primary" type="submit"
+                ng-disabled="myForm.$invalid">{{vmForm.config.titleBtn | i18next}}</button>
+            <button class="btn btn-danger" type="button" style="margin-left: 10px;" ng-click="vmForm.closeForm()"
+                ng-i18next="form.cancel"></button>
+        </div>
+    </div>
+</form>

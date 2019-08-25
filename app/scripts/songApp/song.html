@@ -1,0 +1,25 @@
+<div class="content" ng-controller="songCtrl as vmSongApp">
+    <div class="link panel panel-default hidden-xs">
+        <p class="panel-heading"><a href="" ng-i18next="song.navigate.home"></a><span>></span><a href="" ng-i18next="song.navigate.path"></a></p>
+    </div>
+    <div id="songs" class="tab-pane active songs" style="position: relative">
+        <div class="loader-cat" style="position: absolute" ng-show="vmSongApp.isLoading"></div>
+        <!-- table -->
+        <my-table config="vmSongApp.configTable" link="vmSongApp.configLinkData" list="vmSongApp.configPagi.itemList" ng-if="vmSongApp.configLinkData.showTable"></my-table>
+        
+        <!-- form -->
+        <div class="form-songs" ng-if="vmSongApp.configLinkData.isOpenForm">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3>{{vmSongApp.configForm.title | i18next}}</h3>
+                </div>
+                <div class="panel-body">
+                    <my-form config="vmSongApp.configForm" link="vmSongApp.configLinkData" list="vmSongApp.songList"></my-form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- pagination -->
+        <my-pagination config="vmSongApp.configPagi" link="vmSongApp.configLinkData" list="vmSongApp.songList" class="cus-pagi-table" ng-if="vmSongApp.configLinkData.showTable"></my-pagination>
+    </div>
+</div>

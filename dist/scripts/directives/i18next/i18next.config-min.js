@@ -1,0 +1,1 @@
+!function(e){e.i18next.use(e.i18nextXHRBackend).use(e.i18nextSprintfPostProcessor),e.i18next.init({debug:!1,lng:"en",fallbackLng:["en","vi"],backend:{loadPath:"./app/scripts/directives/i18next/locales/{{lng}}/{{ns}}.json"},useCookie:!1,useLocalStorage:!1},function(e,n){console.log("resources loaded")})}(window);

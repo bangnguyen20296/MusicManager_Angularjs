@@ -1,0 +1,35 @@
+<div class="ng-modal" ng-if="vmModal.link.isOpenModal">
+    <div class="ng-modal-overlay" ng-click="vmModal.hideModal()"></div>
+    <div class="ng-modal-dialog" ng-style="dialogStyle">
+        <div class="ng-modal-close"><i class="fa fa-times" ng-click="vmModal.hideModal()"></i></div>
+        <div class="ng-modal-dialog-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3><span>{{vmModal.config.title | i18next}}</span> <b>{{vmModal.link.name}}</b></h3>
+                    <hr style="border-top:1px solid darkblue"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-hover table-bordered table-striped">
+                        <thead>
+                            <tr class="info">
+                                <th ng-repeat="col in vmModal.config.numberOfColumns">{{col | i18next}}</th>
+                            </tr>
+                        <tbody>
+                            <tr ng-repeat="item in vmModal.config.itemList | filter: search">
+                                <td>{{item['name']}}</td>
+                                <td>{{item.artist}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" style="margin-top: 20px">
+                    <my-pagination config="vmModal.config" list="vmModal.listModal" class="cus-pagi-modal"></my-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="row cus-table" ng-if="vmDoubleTable.path === vmDoubleTable.config.playlistPath">
+    <div class="col-md-6">
+        <h3><span class="label label-danger" ng-i18next="form.title_table_left"></span></h3>
+        <my-table config="vmDoubleTable.configTableLeft" link="link">
+        </my-table>
+        <my-pagination config="vmDoubleTable.configTableLeft"></my-pagination>
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-2 pos">
+                <div class="btn-group-vertical vertical-center">
+                    <button type="button" class="btn btn-success btn-sm btn-arrow-left"
+                        ng-click="vmDoubleTable.addSongToNewList()" ng-i18next="form.add"></button>
+                    <button type="button" class="btn btn-dark btn-sm btn-arrow-right"
+                        ng-click="vmDoubleTable.dropSongFromAddedSongs()" ng-i18next="form.drop"></button>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <h3><span class="label label-warning" ng-i18next="form.title_table_right"></span></h3>
+                <my-table config="vmDoubleTable.configTableRight" link="link">
+                </my-table>
+                <my-pagination config="vmDoubleTable.configTableRight"></my-pagination>
+            </div>
+        </div>
+    </div>
+</div>

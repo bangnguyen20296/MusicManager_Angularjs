@@ -1,0 +1,1 @@
+!function(){"use strict";angular.module("myApp").factory("FormService",function(){var n={isOpenForm:!1,isAdd:!1,isEdit:!1};return{state:n,openForm:function(){n.isOpenForm=!0},closeForm:function(){n.isOpenForm=!1}}})}();

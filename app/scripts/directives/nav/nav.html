@@ -1,0 +1,16 @@
+<nav class="navbar navbar-default navbar-fixed-left">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+            <li ng-class="{active: songActive}"><a href="{{constant.songURL}}" ng-i18next="navbar.songs"></a></li>
+            <li ng-class="{active: playlistActive}"><a href="{{constant.playlistURL}}" ng-i18next="navbar.playlists"></a></li>
+        </ul>
+    </div>
+</nav> 

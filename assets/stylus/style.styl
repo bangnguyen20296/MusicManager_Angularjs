@@ -1,0 +1,413 @@
+// @import 'nib'
+@import url("https://fonts.googleapis.com/css?family=Patrick+Hand")
+@import 'mixins.styl'
+mw767 = "screen and (max-width: 767px)"
+body 
+    .container
+        background-color: white 
+        @media screen and (min-width: 1170px)
+            width: 100%
+    .wrapper 
+        margin-left: 230px
+        @media mw767
+            margin-left: 0
+        // ANIAMATION
+        ng-view.ng-enter 
+            transition: 0.4s linear all
+            -webkit-transition: 0.4s linear all
+            -o-transition: 0.4s linear all
+            opacity: 0
+        ng-view.ng-enter.ng-enter-active
+            opacity: 1
+    .navbar-fixed-left 
+        position: absolute
+        border-radius: 0
+        width: 200px
+        // min-height: 500px
+        @media mw767
+            position: static
+            width: 100%
+            min-height: auto
+    .navbar 
+        #myNavbar
+            padding: 0
+            .nav
+                margin-left: 0
+            .nav, li 
+                width: 100%
+            li 
+                transition: color .28s ease, background-color .28s ease
+                a
+                    color: rgba(238,110,115,0.7)
+                    font-size: 16px
+                    &:hover
+                        color: rgb(238, 76, 83)
+                &:hover
+                    // background-color: #83BFFC
+            .navbar-nav>.active>a
+                color: rgb(238, 76, 83)
+    .content
+        .songs, .playlists
+            .panel
+                .panel-heading
+                    margin: 0
+                    padding: 0
+                .vcenter
+                    text-align: right
+                    position: absolute
+                    top: 25px
+                    right: 0
+                    .search 
+                        padding-right: 0
+                    a
+                        color: white
+                .vcenter2
+                    padding: 0 15px
+                    text-align: right
+                    position: absolute
+                    top: 15px
+                    right: -5px 
+                    .form-control
+                        float: none
+                    input 
+                        border-radius: 20px
+                        width: 65%
+                    .input-group-addon
+                        background: none
+                        border: none
+                        position: absolute;
+                        right: 35px;
+                        top: 0px;
+                        z-index: 100;
+            .form-songs
+                .panel-heading
+                    h3 
+                        margin: 0 0 0 15px
+                        padding: 15px 0
+                .usr
+                    margin-left: 14px
+                .float-right
+                    float: right
+                .form-control
+                    display: inline-block
+                    width: 50%
+                small 
+                    color: red
+                    display: block
+                    margin-left: 100px
+                .form-group
+                    input.ng-invalid.ng-touched
+                        border: red 1px solid
+        .playlists
+            .pos
+                position: static
+            .cus-table
+                position: relative
+                min-height: 150px
+                h3 
+                    margin: 5px 0 0 0
+                .vertical-center 
+                    position: absolute
+                    top: 40%
+                    left: 4%
+                    button 
+                        margin-top: 10px 
+        .link
+            p
+                margin-bottom: 0
+            span 
+                margin: 5px
+        table
+            background: white
+            margin: 0
+            td 
+                vertical-align: middle
+        .table-hover>tbody>tr:hover 
+            background-color: #D8ECFF
+        i  
+            margin: 5px
+    .cus
+        margin-left: 60px
+    .multiselect, .multiselect-container 
+        margin-left: 75px!important
+    // cus-button
+    .ske-btn span 
+        background: #FFF
+        display: block
+        padding: 5px 15px
+        border-radius: 5px
+        border: 2px solid #000
+    .ske-btn:hover 
+        box-shadow: 0 2px 0 #000, 0 2px 0px 2px #f03755
+    .ske-btn:active 
+        top: 4px
+        padding-bottom: 0px
+        box-shadow: 0 1px 0 #000
+    .ske-btn 
+        position: relative
+        float: left
+        font: normal 12px/12px "Patrick Hand", sans-serif
+        margin-right: 10px
+        text-transform: uppercase
+        color: #000
+        text-decoration: none
+        padding: 0 0 2px 0
+        border-radius: 5px
+        box-shadow: 0 2px 0 #000
+        transition: padding 0.1s, box-shadow 0.1s, top 0.1s
+        background-image: url('data:image/gif;base64,R0lGODlhBAAEAIABAAAAAAAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5NUY1OENCRDdDMDYxMUUyOTEzMEE1MEM5QzM0NDVBMyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5NUY1OENCRTdDMDYxMUUyOTEzMEE1MEM5QzM0NDVBMyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjk1RjU4Q0JCN0MwNjExRTI5MTMwQTUwQzlDMzQ0NUEzIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjk1RjU4Q0JDN0MwNjExRTI5MTMwQTUwQzlDMzQ0NUEzIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAQAAAQAsAAAAAAQABAAAAgYEEpdoeQUAOw==')
+    // cus-icon
+    i.material-icons 
+        font-size: 1.5rem
+        color: white
+        position: relative
+        border-radius: 50%
+        padding: 10px
+        margin: 3px
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)
+        transition: color 0.2s ease, background-color 0.2s ease, transform 0.3s ease
+    i.material-icons:after 
+        content: ""
+        width: 100%
+        height: 100%
+        border: solid 2px
+        transform: scale(0.8)
+        position: absolute
+        top: 0
+        left: 0
+        border-radius: 50%
+        transition: all 0.3s ease
+    i.material-icons:hover:after 
+        transform: scale(1)
+        box-shadow: 10px 0 20px rgba(0, 0, 0, 0.19), 6px 0 6px rgba(0, 0, 0, 0.23)
+    i.edit
+        background-color: #cd8484
+    i.edit:hover 
+        color: #cd8484
+    i.edit:after 
+        border-color: #cd8484
+    i.delete
+        background-color: #af88b9
+    i.delete:hover 
+        color: #af88b9
+    i.delete:after 
+        border-color: #af88b9
+    i.arrow
+        background-color: #61ABAB 
+    i.arrow:hover 
+        color: #61ABAB
+    i.arrow:after 
+        border-color: #61ABAB
+    i.material-icons:hover 
+        background-color: transparent
+        transform: rotate(25deg)
+        cursor: pointer
+        box-shadow: none
+    // Modal
+    .ng-modal
+        .ng-modal-overlay 
+            /* A dark translucent div that covers the whole screen */
+            position: fixed
+            z-index: 9999
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            background-color: #808080
+            opacity: 0.5
+        .ng-modal-dialog 
+            background-color: #fff
+            box-shadow: 10px 10px #595554
+            border-radius: 4px
+            z-index:10000
+            position: fixed
+            top: 45%
+            left: 50%
+            -ms-transform: translate(-50%, -50%)
+            -o-transform: translate(-50%, -50%)
+            -webkit-transform: translate(-50%, -50%)
+            -moz-transform: translate(-50%, -50%)
+            transform: translate(-50%, -50%)
+        .ng-modal-dialog-content 
+            padding: 10px
+            text-align: left
+        .ng-modal-close 
+            position: absolute
+            top: 3px
+            right: 5px
+            padding: 5px
+            cursor: pointer
+            display: inline-block
+            font-size: 20px
+            font-weight: bold
+            font-family: 'arial', 'sans-serif'
+            z-index: 10000
+    // Pagination
+    .pagination 
+        margin: 0
+    .cus-pagi-table
+        .pagination
+            width: 100%
+            margin: 0 auto
+    .cus-pagi-modal
+        .pagination
+            margin-left: 350px
+    // Disabled
+    .disabled 
+        pointer-events: none
+        opacity 0.5
+    .abled
+        pointer-events: auto
+        opacity 1
+    // Select Language
+    select 
+        -webkit-appearance: none
+        -moz-appearance: none
+        -ms-appearance: none
+        appearance: none
+        outline: 0
+        box-shadow: none
+        border: 0 !important
+        background: #ddd
+        background-image: none
+    select::-ms-expand 
+        display: none
+    .select 
+        position: relative
+        display: flex
+        margin-top: 25px
+        width: 10em
+        height: 3em
+        line-height: 3
+        background: #2c3e50
+        overflow: hidden
+        border-radius: .25em
+        select 
+            flex: 1
+            padding: 0 .5em
+            color: #fff
+            cursor: pointer
+            background-color: #5c9cd8
+            option 
+                background-color: #f9f9f9
+                color: #b5b5b5
+                display: block
+                padding: 0 22px
+        /* Arrow */
+    .select::after 
+        content: '\25BC'
+        position: absolute
+        top: 0
+        right: 0
+        padding: 0 1em
+        background: #34495e
+        color: white
+        cursor: pointer
+        pointer-events: none
+        -webkit-transition: .25s all ease
+        -o-transition: .25s all ease
+        transition: .25s all ease
+    .select:hover::after 
+        color: #f39c12
+    // Loader
+    .no-js #loader 
+        display: none 
+    .js #loader 
+        display: block 
+        position: absolute 
+        left: 100px
+        top: 0
+    .loader-cat, .loader-spinner
+        position: fixed
+        left: 0px
+        top: 0px
+        width: 100%
+        height: 100%
+        z-index: 9999
+        // background: url(https://thumbs.gfycat.com/ResponsibleSoftAegeancat-max-1mb.gif) center no-repeat #fff
+        background: url(https://cdn.dribbble.com/users/623319/screenshots/3565663/cat-lol.gif) center no-repeat #fff
+    .loader-spinner
+        background: url(https://j2n9a3i8.stackpathcdn.com/wp-content/uploads/2014/08/Preloader_11.gif) center no-repeat #fff
+    // Sidebar
+    .st-container, .st-pusher, .st-content 
+        height: 100%;
+    .st-content 
+        background: #f3efe0;
+    .st-content, .st-content-inner 
+        position: relative
+    .st-container 
+        position: relative;
+        overflow: hidden;
+    .st-pusher 
+        position: relative;
+        left: 0;
+        z-index: 99;
+        -webkit-transition: -webkit-transform 0.5s;
+        transition: transform 0.5s;
+    .st-pusher::after 
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        background: rgba(0,0,0,0.2);
+        content: '';
+        opacity: 0;
+        -webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+        transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+    .st-menu-open .st-pusher::after 
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        -webkit-transition: opacity 0.5s;
+        transition: opacity 0.5s;
+    .st-menu 
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 100;
+        visibility: hidden;
+        width: 300px;
+        height: 100%;
+        background:#f1f1f1;
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+    .st-menu::after 
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.2);
+        content: '';
+        opacity: 1;
+        -webkit-transition: opacity 0.5s;
+        transition: opacity 0.5s;
+    .st-menu-open .st-menu::after 
+        width: 0;
+        height: 0; 
+        opacity: 0;
+        -webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+        transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+    .st-effect-2.st-menu-open .st-pusher 
+        -webkit-transform: translate3d(-300px, 0, 0);
+        transform: translate3d(-300px, 0, 0);
+    .st-effect-2.st-menu 
+        z-index: 1;
+    .st-effect-2.st-menu-open .st-effect-2.st-menu 
+        visibility: visible;
+        -webkit-transition: -webkit-transform 0.5s;
+        transition: transform 0.5s;
+    .st-effect-2.st-menu::after 
+        display: none;
+    .hit-the-floor 
+        color: #fff;
+        font-size: 60px;
+        font-weight: bold;
+        font-family: Helvetica;
+        text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+        text-align: center;
+
+    
+
+    

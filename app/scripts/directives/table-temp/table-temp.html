@@ -1,0 +1,16 @@
+<table class="table table-hover table-bordered table-striped" ng-if="vmTableTemp.config.showTableForm">
+    <thead>
+        <tr class="danger">
+            <th><input type="checkbox" name="all" ng-click="vmTableTemp.selectAllItem()" ng-model="vmTableTemp.data.isCheckedAll2"></th>
+            <th ng-repeat="col in vmTableTemp.config.numberOfColumns">{{col | i18next}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in vmTableTemp.config.list | filter: search">
+            <td><input type="checkbox" name="all" ng-model="item.checked"
+                    ng-click="vmTableTemp.toggleCheckboxSelection($event, $index)"></td>
+            <td>{{item['name']}}</td>
+            <td>{{item.artist}}</td>
+        </tr>
+    </tbody>
+</table>

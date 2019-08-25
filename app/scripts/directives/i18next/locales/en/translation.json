@@ -1,0 +1,89 @@
+{
+    "title": "Music Manager",
+    "Name": "Name",
+    "Artist": "Artist",
+    "navbar": {
+        "songs": "Songs",
+        "playlists": "Playlists"
+    },
+    "table": {
+        "add": "Add",
+        "delete": "Delete",
+        "search": "Search",
+        "search_placeholder": "Search",
+        "btnDetail": "Detail",
+        "tooltip_edit": "Edit",
+        "tooltip_delete": "Delete",
+        "tooltip_info": "Info"
+    },
+    "double-table": {
+        "table-left": {
+            "numberOfColumns": ["Name", "Artist"]
+        },
+        "table-right": {
+            "numberOfColumns": ["Name", "Artist"]
+        }
+    },
+    "pagination": {
+        "first": "First",
+        "previous": "Previous",
+        "next": "Next",
+        "last": "Last"
+    },
+    "modal": {
+        "numberOfColumns": ["Name", "Artist"],
+        "title": "Playlist:"
+    },
+    "form": {
+        "create_titleBtn": "Create",
+        "edit_titleBtn": "Apply",
+        "cancel": "Cancel",
+        "add": "Add",
+        "drop": "Drop",
+        "title_table_left": "Added Songs",
+        "title_table_right": "Song Lists"
+    },
+    "song": {
+        "navigate": {
+            "home": "Home",
+            "path": "Songs"
+        },
+        "table": {
+            "title": "Manage Songs",
+            "numberOfColumns": ["Name", "Artist", "Actions"]
+        },
+        "form": {
+            "labelInput1": "*Song Name",
+            "labelInput2": "Artist",
+            "warning1": "Song name cannot be empty",
+            "warning2": "Artist name cannot be empty",
+            "create": {
+                "title": "Create Song"
+            },
+            "edit": {
+                "title": "Edit Song"
+            }
+        }
+    },
+    "playlist": {
+        "navigate": {
+            "home": "Home",
+            "path": "Playlists"
+        },
+        "table": {
+            "title": "Manage Playlists",
+            "numberOfColumns": ["Name", "Songs", "Actions"]
+        },
+        "form": {
+            "numberOfColumns": ["Name", "Artist"],
+            "labelInput1": "*Playlist Name",
+            "warning1": "Playlist name cannot be empty",
+            "create": {
+                "title": "Create Playlist"
+            },
+            "edit": {
+                "title": "Edit Playlist"
+            }
+        }
+    }
+} 

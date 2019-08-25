@@ -1,0 +1,1 @@
+!function(){"use strict";angular.module("myApp").factory("DataService",["$http",function(a){return{constant:{songURL:"#!songs",playlistURL:"#!playlists",songPath:"/songs",playlistPath:"/playlists"},data:{listTable:[],isCheckedAll:!1,language:[{name:"English",lng:"en"},{name:"Vietnamese",lng:"vi"}]}}}])}();
